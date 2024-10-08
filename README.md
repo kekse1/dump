@@ -6,7 +6,7 @@
 ## Example Screenshot
 This is just a **first preview** screenshot.
 
-Many feature will come directly when I have more time..
+Many feature will come directly when I've got the time..
 My [**Norbert**](https://github.com/kekse1/norbert/) project is more important atm.
 
 ![First Preview](img/first-preview.png)
