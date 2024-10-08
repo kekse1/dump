@@ -9,7 +9,7 @@ This is just a **first preview** screenshot.
 Many feature will come directly when I've got the time..
 My [**Norbert**](https://github.com/kekse1/norbert/) project is more important atm.
 
-![First Preview](img/alpha-screenshot.png)
+![First Preview](img/preview.png)
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
