@@ -5,6 +5,7 @@
 
 //
 const DEFAULT_SILENT = true;
+const DEFAULT_REFRESH = 1000;
 const DEFAULT_CONSOLE_WIDTH_MIN = 60;
 const DEFAULT_PARAM_SCHEME_JSON = '../json/param.json';
 
@@ -110,13 +111,18 @@ class Dump extends Quant
 			//
 			this.radixDigits = Dump.getRadixDigitCount(this.radix);
 
-			if(int(this.param.refresh))
+			if(int(this.param.refresh) || bool(this.param.refresh))
 			{
 				this.refresh = this.param.refresh;
 			}
 			else
 			{
 				this.refresh = this.getConfig('refresh');
+			}
+
+			if(this.refresh === true)
+			{
+				this.refresh = DEFAULT_REFRESH;
 			}
 
 			if(!int(this.refresh) || this.refresh < 1)

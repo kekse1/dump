@@ -32,7 +32,7 @@ until now.
 
 ### Example Screenshot
 This is just a **first preview** screenshot.
-![First Preview](img/preview.png)
+![First Preview](img/screenshot.png)
 
 ## Download
 You can download it by browsing the [**`./src/`**](./src/). It's a [`Node.js`](https://nodejs.org/) **sub** project.
