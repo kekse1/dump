@@ -255,6 +255,11 @@ class Dump extends Quant
 		return super.destroy();
 	}
 	
+	get isFile()
+	{
+		return (this.path !== '-');
+	}
+
 	get isStdIn()
 	{
 		return (this.path === '-');
