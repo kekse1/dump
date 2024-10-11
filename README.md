@@ -57,8 +57,9 @@ but the more config parameters will come, the more structure they need .. and go
 
 So you can only see the code of this **sub** project. It doesn't really run stand-alone.
 
-If you'd like to use it, you could bring in your own **polyfill**. If you don't want to wait until I'm going
-to run my [**`init-sub-proj.sh`**](https://github.com/kekse1/scripts/?tab=readme-ov-file#init-sub-projsh).
+If you'd like to use it, you could bring in your own **polyfill**. .. in case you don't
+want to wait until I'm going to run my
+[**`init-sub-proj.sh`**](https://github.com/kekse1/scripts/?tab=readme-ov-file#init-sub-projsh).
 
 ## References
 * [`hexyl`](https://github.com/sharkdp/hexyl/)
