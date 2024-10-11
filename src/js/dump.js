@@ -413,7 +413,7 @@ class Dump extends Quant
 	
 	calculateBytes()
 	{
-		if(!this.stats)
+		if(!this.stats.size)
 		{
 			return 0;
 		}
