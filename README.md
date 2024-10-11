@@ -17,7 +17,7 @@ My own **Radix viewer/editor**.
 It became necessary since I wanted to inspect the changing data of my [Norbert](https://github.com/kekse1/norbert/).
 
 ### First words
-It's more than a **Hex viewer**.. it's rather a real **Radix viewer**; which will become a **Radix Editor** in some
+It's more than a **Hex viewer**.. it's rather a **Radix viewer**; which will become a **Radix Editor** in some
 time. I'm working on it just a little bit right now, since it's not the most important project for my purpoises. But
 it became necessary, so I invented it.
 
