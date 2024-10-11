@@ -488,11 +488,7 @@ class Dump extends Quant
 						this.handleChunk(buffer, i, fin);
 					}
 					
-					if(fin)
-					{
-						return process.exit(0);
-					}
-					else if(fin = checkLimits())
+					if(fin || (fin = checkLimits()))
 					{
 						return process.exit(0);
 					}
