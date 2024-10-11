@@ -18,8 +18,8 @@ It became necessary since I wanted to inspect the changing data of my [Norbert](
 
 ### First words
 It's more than a **Hex viewer**.. it's rather a **Radix viewer**; which will become a **Radix Editor** in some
-time. I'm working on it just a little bit right now, since it's not the most important project for my purpoises. But
-it became necessary, so I invented it.
+time. I'm working on it just a little bit right now, since it's not the most important project for my purposes.
+But it became necessary, so I invented it.
 
 > [!TIP]
 > JFYI: **Radix** is my word for a numeric **base**. The decimal system with base 10, hexadecimal 16, or binary 2.
