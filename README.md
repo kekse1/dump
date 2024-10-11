@@ -51,6 +51,10 @@ but the more config parameters will come, the more structure they need .. and go
 > I'm using my `.json` configuration with the help of my
 > [**`config.js`**](https://github.com/kekse1/javascript/#configjs).
 
+> [!TIP]
+> I'm also using my own [**`JSON.js`**](https://github.com/kekse1/json.js/) project in here.
+> This is why you can see the comments in my [`config.json`](./src/json/config.json).
+
 ### Infra-Structure
 > [!IMPORTANT]
 > This project relies on my own JavaScript infrastructure.
