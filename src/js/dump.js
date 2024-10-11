@@ -36,13 +36,6 @@ class Dump extends Quant
 		}
 		
 		//
-		this.timeout = null;
-		this.path = null;
-		this.radix = null;
-		this.refresh = null;
-		this.handle = null;
-
-		//
 		Application.registerExitHandler((... _a) => this.onExit(... _a));
 		
 		new Application(this, { silent: DEFAULT_SILENT,
