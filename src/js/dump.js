@@ -59,8 +59,6 @@ class Dump extends Quant
 			}
 
 			//
-			//TODO/stdin..!!!
-			//
 			var path = this.param.path;
 			var radix;
 			
