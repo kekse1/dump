@@ -4,10 +4,10 @@
  */
 
 //
-const DEFAULT_SILENT = true;
-const DEFAULT_REFRESH = 1000;
+const DEFAULT_PARAM_SCHEME_JSON = '../../json/param/dump.json';
 const DEFAULT_CONSOLE_WIDTH_MIN = 60;
-const DEFAULT_PARAM_SCHEME_JSON = '../json/param.json';
+const DEFAULT_REFRESH = 1000;
+const DEFAULT_SILENT = true;
 
 //
 import Application from '../shared/app.js';
@@ -192,49 +192,60 @@ class Dump extends Quant
 					return process.exit(true);
 				}
 				
-				if(('start' in this.param) || ('stop' in this.param))
-				{
-					console.error('You can\'t use --start or --stop for stdin data.');
-					return process.exit(true);
-				}
-				
 				if(this.tail)
 				{
 					throw new Error('TODO (--tail with stdin input)!');
 				}
 			}
+
+			if('start' in this.param)
+			{
+				if(this.stats.size)
+				{
+					this.start = Math.getIndex(this.param.start, this.stats.size);
+				}
+				else if(this.param.start >= 0)
+				{
+					this.start = this.param.start;
+				}
+				else
+				{
+					console.error('Since your input file doesn\'t seem to have a specific size, you can\'t use negative --start.');
+				}
+			}
 			else
 			{
-				if('start' in this.param)
+				this.start = 0;
+			}
+
+			if('stop' in this.param)
+			{
+				if(this.stats.size)
 				{
-					this.start = Math.getIndex(this.param.start,
-						this.stats.size);
+					this.stop = Math.getIndex(this.param.stop, this.stats.size);
+				}
+				else if(this.param.stop >= 0)
+				{
+					this.stop = this.param.stop;
 				}
 				else
 				{
-					this.start = 0;
+					console.error('Since your input file doesn\'t seem to have a specific size, you can\'t use negative --stop.');
 				}
-
-				if('stop' in this.param)
-				{
-					this.stop = Math.getIndex(this.param.stop,
-						this.stats.size);
-				}
-				else
-				{
-					this.stop = (this.stats.size - 1);
-				}
-				
-				if(this.start > this.stop)
-				{
-					console.error('Your --start can\'t be higher than --stop!');
-					return process.exit(true);
-				}
-
-				if(this.stats.size === 0)
-				{
-					return process.exit(0);
-				}
+			}
+			else if(this.stats.size)
+			{
+				this.stop = (this.stats.size - 1);
+			}
+			else
+			{
+				this.stop = null;
+			}
+			
+			if(this.stop !== null && this.start > this.stop)
+			{
+				console.error('Your --start can\'t be higher than --stop!');
+				return process.exit(true);
 			}
 
 			//
@@ -404,7 +415,7 @@ class Dump extends Quant
 	{
 		if(!this.stats)
 		{
-			return null;
+			return 0;
 		}
 		
 		if(int(this.head))
@@ -466,19 +477,33 @@ class Dump extends Quant
 		};
 		
 		//
+		var start = this.start;
 		var fin = false;
+		var total = 0;
 		var buffer;
+		var diff;
 
 		//
 		if(this.isStdIn)
 		{
 			process.stdin.setEncoding('utf8');//(null) won't work here?
 			process.stdin.on('data', (_chunk) => {
-				for(var i = 0; i < _chunk.length; i += this.columns)
+				for(var i = start; i < _chunk.length; i += this.columns)
 				{
 					buffer = Uint8Array.create(_chunk.substr(i, this.columns));
+					total += buffer.length;
 
-					if(buffer.length < this.columns)
+					if(this.stop !== null)
+					{
+						diff = (this.stop - this.start - total + 1);
+
+						if(diff < 0)
+						{
+							buffer = buffer.slice(0, diff);
+							fin = true;
+						}
+					}
+					else if(buffer.length < this.columns)
 					{
 						fin = true;
 					}
@@ -502,18 +527,14 @@ class Dump extends Quant
 		else
 		{
 			//
-			var start = this.start;
-			var diff;
-		
-			if(this.tail)
+			if(this.tail && this.stop !== null && this.bytes)
 			{
 				diff = (this.stop - this.start - this.bytes + 1);
-				if(diff > 0) start += diff;
+				if(diff > 0) start += diff;console.dir({start:this.start,stop:this.stop,bytes:this.bytes});
 			}
 
 			buffer = new Uint8Array(this.columns);
 			var position = start;
-			var total = 0;
 			var read;
 
 			//
@@ -535,16 +556,19 @@ class Dump extends Quant
 				position += read;
 				total += read;
 
-				diff = (position - this.stop - 1);
-
-				if(diff >= 0)
+				if(this.stop !== null)
 				{
-					if(diff > 0)
-					{
-						buffer = buffer.slice(0, -diff);
-					}
+					diff = (position - this.stop - 1);
 
-					fin = true;
+					if(diff >= 0)
+					{
+						if(diff > 0)
+						{
+							buffer = buffer.slice(0, -diff);
+						}
+
+						fin = true;
+					}
 				}
 
 				if(buffer.length > 0)
@@ -576,3 +600,4 @@ class Dump extends Quant
 export default Dump;
 
 //
+
