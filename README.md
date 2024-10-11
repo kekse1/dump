@@ -52,8 +52,6 @@ but the more config parameters will come, the more structure they need .. and go
 > [**`config.js`**](https://github.com/kekse1/javascript/#configjs).
 
 ### Infra-Structure
-Just for your info:
-
 > [!IMPORTANT]
 > This project relies on my own JavaScript infrastructure.
 
