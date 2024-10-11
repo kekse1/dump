@@ -27,7 +27,8 @@ But it became necessary, so I invented it.
 > So this project aim's to let you see input/file data in a specificly converted view.
 
 I found out such a code like it's also the [**`hexyl`**](https://github.com/sharkdp/hexyl/) is really easy. Don't
-know exactly how hard this will get when I'll extend it (got a massive TODO right now). But it was a cake of piece.
+know exactly how hard this will get when I will extend it (got a big TODO for this one). But it was a cake of piece
+until now.
 
 ### Example Screenshot
 This is just a **first preview** screenshot.
