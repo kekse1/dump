@@ -47,6 +47,10 @@ I **think** in the future I'll also provide an easy setup/install script. But no
 Additionally, my [configuration `.json` file](./src/json/config.json) will have a better structure. It all was quick-and-easy setup for me,
 but the more config parameters will come, the more structure they need .. and gonna have.
 
+> [!TIP]
+> I'm using my `.json` configuration with the help of my
+> [**`config.js`**](https://github.com/kekse1/javascript/#configjs).
+
 ### Infra-Structure
 Just for your info:
 
