@@ -1,0 +1,66 @@
+{
+	/* globally enable/disable this project */
+	"enabled": true,
+
+	/* possibility to globally disable all ansi escape sequences (styles/colors/..) */
+	"ansi": true,
+
+	/* default --head and --tail values. can be booleans and integers; but BOTH at the same time are invalid! */
+	"head": false,
+	"tail": false,
+
+	/* default --radix .. use (16) for kinda "hex viewer/editor", but you can use all in the range of [ 2 .. 36 ]
+		(TODO: `radix.js` for even more radix values.. didn't implement it here for performance reasons... */
+	"radix": 10,
+
+	/* if here or via --refresh parameter a positive integer, the file is being dumped every (n) milliseconds;
+		useful if you'd like to observe changing files. .. */
+	"refresh": 0,
+
+	/* for --head and --tail with boolean: this will be subtracted from the 'console.height'..
+		.. e.g. more place for bigger prompts, etc.. */
+	"consoleHeightSub": 4,
+
+	/* the padding for bytes which are smaller than the maximum size of characters.. defaults to empty string ' '. */
+	"fill": {
+		
+		/* left is the byte view, printed with the defined radix. */
+		"left": " ",
+		/* right is the character view, where you gonna see the 'plain text/code'. */
+		"right": " "
+
+	},
+
+	/* 'invalid' means non-printable characters (so 0-31 and 127); these can be 'fainted' (a bit darker) */
+	"faintInvalid": true,
+
+	/* colors for the RIGHT (character) view.. looks nice as it is now. */
+	"color": {
+
+		/* valid are all printable characters. */
+		"valid": {
+			
+			"fg": [ 0, 0, 0 ],
+			"bg": [ 200, 220, 120 ]
+
+		},
+
+		/* invalid are mostly binary values.. so 0-31 and 127 */
+		"invalid": {
+
+			"fg": [ 255, 255, 255 ],
+			"bg": [ 140, 90, 20 ]
+
+		},
+
+		/* special case: if the input data ended, and the current/last output line wasn't written up to it's end. */
+		"empty": {
+
+			"fg": [ 0, 0, 0 ],
+			"bg": [ 110, 150, 180 ]
+
+		}
+
+	}
+
+}
