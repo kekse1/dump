@@ -64,9 +64,10 @@ want to wait until I'm going to run my
 ## References
 * [`hexyl`](https://github.com/sharkdp/hexyl/)
 
-I mention it here because before this own one I was a user of this `hexyl` project. In the future, when I'm extending
-this code base, I think I'm going to see this foreign project as an example for me. Like more colors for different types
-of byte data, and more.
+I mention this project here because I often used it before I came up with my own solution.
+
+In the future, when I'm extending this code base, I think I'm going to see this foreign
+project as an example for me. Like more colors for different types of byte data, and more.
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
