@@ -10,9 +10,9 @@ DIR="$(dirname "$REAL")"
 PROJ="$(realpath "${DIR}/../")"
 BASE="$(basename "$REAL")"
 NAME="$(basename "$REAL" .sh)"
-SOURCE="${PROJ}/js/dump"
+SOURCE="${PROJ}/js/"
 TARGET="${SOURCE}/main.js"
-CONFIG="${PROJ}/config/dump.json"
+CONFIG="${PROJ}/json/config.json"
 
 #
 NODE="`which node 2>/dev/null`"
