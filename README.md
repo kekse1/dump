@@ -31,7 +31,7 @@ know exactly how hard this will get when I will extend it (got a big TODO for th
 until now.
 
 ### Example Screenshot
-This is just a **first preview** screenshot.
+This is a **first preview** screenshot.
 ![First Preview](img/screenshot.png)
 
 ## Download
