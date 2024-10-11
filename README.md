@@ -22,7 +22,8 @@ time. I'm working on it just a little bit right now, since it's not the most imp
 But it became necessary, so I invented it.
 
 > [!TIP]
-> JFYI: **Radix** is my word for a numeric **base**. The decimal system with base 10, hexadecimal 16, or binary 2.
+> JFYI: **Radix** is my word for a numeric **base**. The **decimal** system with base **10**,
+> **hexadecimal** with **16**, or **binary** with **2**.
 > So this project aim's to let you see input/file data in a specificly converted view.
 
 I found out such a code like it's also the [**`hexyl`**](https://github.com/sharkdp/hexyl/) is really easy. Don't
