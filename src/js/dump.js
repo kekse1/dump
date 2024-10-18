@@ -121,20 +121,10 @@ class Dump extends Quant
 				this.refresh = null;
 			}
 
-			if(!string(this.fillLeft = this.getConfig('fill.left'), false))
-			{
-				throw new Error('Invalid cfg[fill.left] (not a non-empty String)');
-			}
-
-			if(!string(this.fillRight = this.getConfig('fill.right'), false))
-			{
-				throw new Error('Invalid cfg[fill.right] (not a non-empty String)');
-			}
-			
 			//
 			//TODO/check for validity!! ..
 			//
-			this.color = this.getConfig('color');
+			this.design = this.getConfig('design');
 			
 			//
 			if(bool(this.param.ansi))
@@ -303,18 +293,24 @@ class Dump extends Quant
 		
 		if(_byte < 32 || _byte === 127)
 		{
-			result = this.fillRight;
-			result = result.fg(... this.color.invalid.fg, false).
-				bg(... this.color.invalid.bg, false);
+			result = this.design.nonPrintable.replace;
+			result = result.fg(... this.design.nonPrintable.fg, false).
+				bg(... this.design.nonPrintable.bg, false);
+		}
+		else if(_byte > 127)
+		{
+			result = this.design.ansi.replace;
+			result = result.fg(... this.design.ansi.fg, false).
+				bg(... this.design.ansi.bg, false);
 		}
 		else
 		{
 			result = String.fromCharCode(_byte);
-			result = result.fg(... this.color.valid.fg, false).
-				bg(... this.color.valid.bg, false);
+			result = result.fg(... this.design.printable.fg, false).
+				bg(... this.design.printable.bg, false);
 		}
-		
-		return result + String.none();
+
+		return result;
 	}
 	
 	//
@@ -347,7 +343,7 @@ class Dump extends Quant
 		//
 		var i = 0, column; for(; i < _buffer.length; ++i)
 		{
-			column = _buffer[i].toString(this.radix).padStart(this.radixDigits, this.fillLeft) + ' ';
+			column = _buffer[i].toString(this.radix).padStart(this.radixDigits, this.design.fill.left) + ' ';
 			if(this.faintInvalid && !(_buffer[i] >= 32 && _buffer[i] !== 127)) column = column.faint(true);
 			this.line += column;
 		}
@@ -369,9 +365,9 @@ class Dump extends Quant
 		
 		if(diff > 0)
 		{
-			diff = this.fillRight.repeat(diff);
-			diff = diff.fg(... this.color.empty.fg, false).
-				bg(... this.color.empty.bg, false);
+			diff = this.design.fill.right.repeat(diff);
+			diff = diff.fg(... this.design.empty.fg, false).
+				bg(... this.design.empty.bg, false);
 			this.line += diff;
 		}
 		

@@ -35,10 +35,17 @@
 	"faintInvalid": true,
 
 	/* colors for the RIGHT (character) view.. looks nice as it is now. */
-	"color": {
+	"design": {
 
-		/* valid are all printable characters. */
-		"valid": {
+		"fill": {
+
+			"left": " ",
+			"right": "x"
+
+		},
+
+		/* valid are all printable characters (ascii, for ansi see below). */
+		"printable": {
 			
 			"fg": [ 0, 0, 0 ],
 			"bg": [ 200, 220, 120 ]
@@ -46,8 +53,18 @@
 		},
 
 		/* invalid are mostly binary values.. so 0-31 and 127 */
-		"invalid": {
+		"nonPrintable": {
 
+			"replace": " ",
+			"fg": [ 255, 255, 255 ],
+			"bg": [ 140, 90, 20 ]
+
+		},
+
+		/* ansi are >127 */
+		"ansi": {
+
+			"replace": " ",
 			"fg": [ 255, 255, 255 ],
 			"bg": [ 140, 90, 20 ]
 
@@ -56,6 +73,7 @@
 		/* special case: if the input data ended, and the current/last output line wasn't written up to it's end. */
 		"empty": {
 
+			"replace": " ",
 			"fg": [ 0, 0, 0 ],
 			"bg": [ 110, 150, 180 ]
 
