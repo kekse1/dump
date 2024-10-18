@@ -21,28 +21,14 @@
 		.. e.g. more place for bigger prompts, etc.. */
 	"consoleHeightSub": 4,
 
-	/* the padding for bytes which are smaller than the maximum size of characters.. defaults to empty string ' '. */
-	"fill": {
-		
-		/* left is the byte view, printed with the defined radix. */
-		"left": " ",
-		/* right is the character view, where you gonna see the 'plain text/code'. */
-		"right": " "
-
-	},
-
 	/* 'invalid' means non-printable characters (so 0-31 and 127); these can be 'fainted' (a bit darker) */
 	"faintInvalid": true,
 
 	/* colors for the RIGHT (character) view.. looks nice as it is now. */
 	"design": {
 
-		"fill": {
-
-			"left": " ",
-			"right": "x"
-
-		},
+		/* pad string to pad numeric outputs (on the left); .. */
+		"pad": "0",
 
 		/* valid are all printable characters (ascii, for ansi see below). */
 		"printable": {

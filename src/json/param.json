@@ -12,7 +12,7 @@
 		"required": true
 	},
 	"refresh": {
-		"type": "integer",
+		"type": [ "integer", "boolean" ],
 		"required": false
 	},
 	"radix": {

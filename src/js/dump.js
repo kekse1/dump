@@ -4,7 +4,7 @@
  */
 
 //
-const DEFAULT_PARAM_SCHEME_JSON = '../../json/param/dump.json';
+const DEFAULT_PARAM_SCHEME_JSON = 'json/param.json';
 const DEFAULT_CONSOLE_WIDTH_MIN = 60;
 const DEFAULT_REFRESH = 1000;
 const DEFAULT_SILENT = true;
@@ -343,7 +343,7 @@ class Dump extends Quant
 		//
 		var i = 0, column; for(; i < _buffer.length; ++i)
 		{
-			column = _buffer[i].toString(this.radix).padStart(this.radixDigits, this.design.fill.left) + ' ';
+			column = _buffer[i].toString(this.radix).padStart(this.radixDigits, this.design.pad) + ' ';
 			if(this.faintInvalid && !(_buffer[i] >= 32 && _buffer[i] !== 127)) column = column.faint(true);
 			this.line += column;
 		}
@@ -365,7 +365,7 @@ class Dump extends Quant
 		
 		if(diff > 0)
 		{
-			diff = this.design.fill.right.repeat(diff);
+			diff = this.design.empty.replace.repeat(diff);
 			diff = diff.fg(... this.design.empty.fg, false).
 				bg(... this.design.empty.bg, false);
 			this.line += diff;
